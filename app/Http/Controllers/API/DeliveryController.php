@@ -23,7 +23,7 @@ class DeliveryController extends Controller
             $status = $request->input('status');
             $isNotDone = $request->input('isNotDone');
 
-
+            
 
             if ($id) {
                 $partner = Delivery::find($id);
@@ -51,8 +51,10 @@ class DeliveryController extends Controller
             if($isNotDone){
                 $value->where('status','!=','Berhasil');
             }
+            
 
             return ResponseFormatter::success($value->orderBy('created_at', 'desc')->get(), "Get Delivery Success");
+
         } catch (Exception $e) {
             return ResponseFormatter::error([
                 'error' => $e->getMessage(),

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gudang;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -30,6 +31,10 @@ class DatabaseSeeder extends Seeder
             'role'=> 'admin',
             'no_hp'=> '08971613199',
             'date_of_birth'=> '2000-05-01',
+        ]);
+
+        $this->call([
+            GudangSeeder::class,
         ]);
     }
 }
